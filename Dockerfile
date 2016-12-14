@@ -4,6 +4,13 @@ MAINTAINER Mee-Nam.lee mnlee30@gmail.com
 
 RUN apt-get -qq update
 
+RUN apt-get -y install oracle-java8-installer
+RUN apt-get clean
+RUN update-alternatives --display java
+
+# add JAVA_HOME to path.
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+
 #install maven and git to build project
 RUN apt-get install -y wget git-core maven
 
